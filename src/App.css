@@ -1,38 +1,23 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#wled-layout .wled-row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.wled-row .led-node {
+  flex: 1 1 0px;
+  border: 1px solid #f0f0f0;
+  text-align: center;
+  aspect-ratio: 1/.8;
+  max-width: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sketch-picker {
+  margin: auto;
+}
+
+/* override for bootstrap tooltip so it would stay visible */
+.tooltip-inner {
+  background-color: #f0f0f0;
+  color: #000000;
 }
