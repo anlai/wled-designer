@@ -69,10 +69,10 @@ const Designer = () => {
     }   
 
     return (<>
-        <h2>Design Editor</h2>
+        <h2 className="mt-4">Design Editor</h2>
         <DesignEditor pattern={state.pattern} direction={state.direction} width={state.width} height={state.height} onChange={updateEditor}></DesignEditor>
 
-        <h2>Design Layout</h2>
+        <h2 className="mt-4">Design Layout</h2>
         <Row>
             <Col className="col-md-3 color-picker">
                 <SketchPicker disableAlpha={true} color={state.selectedColor} presetColors={presetColors} onChange={updateColor}></SketchPicker>
@@ -82,7 +82,7 @@ const Designer = () => {
             </Col>
         </Row>
 
-        <h2>Debug State Output</h2>
+        <h2 className="mt-4">Debug State Output</h2>
         <Card>
             <pre>{JSON.stringify(state,null, '  ')}</pre>
         </Card>
