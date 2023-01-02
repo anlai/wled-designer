@@ -40,6 +40,8 @@ const DesignLayout = ({pattern,direction,width,height,nodes,onLedClick}) => {
         case 'grid':
             layout = generateGrid(direction);
             break;
+        default:
+            layout = generateGrid('snake-top-left');
     }
 
     return (<div id="wled-layout">
