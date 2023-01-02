@@ -2,7 +2,7 @@ import React from 'react';
 
 function About() {
     return (<>
-            <h1>About</h1>
+            <h2 className="mt-4">About</h2>
         </>);
 }
 
