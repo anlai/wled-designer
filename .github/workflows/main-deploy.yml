@@ -25,5 +25,5 @@ jobs:
       run: |
         git config --global user.email ${{ secrets.DEPLOY_EMAIL }}
         git config --global user.name ${{ secrets.DEPLOY_NAME }}
-        git remote set-url origin https://${{ secrets.DEPLOY_TOKEN }}.github.com/anlai/wled-designer.git
+        git remote set-url origin https://${{ secrets.DEPLOY_TOKEN }}@github.com/anlai/wled-designer.git
         npm run deploy
