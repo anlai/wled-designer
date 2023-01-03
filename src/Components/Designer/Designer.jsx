@@ -5,6 +5,7 @@ import DesignLayout from '../DesignLayout/DesignLayout';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { SketchPicker } from 'react-color';
+import CollapsableCard from '../CollapsableCard/CollapsableCard';
 
 const Designer = () => {
 
@@ -69,23 +70,27 @@ const Designer = () => {
     }   
 
     return (<>
-        <h2 className="mt-4">Design Editor</h2>
+        <h2 className="mt-4 mb-4">Design Editor</h2>
         <DesignEditor pattern={state.pattern} direction={state.direction} width={state.width} height={state.height} onChange={updateEditor}></DesignEditor>
 
-        <h2 className="mt-4">Design Layout</h2>
+        <h2 className="mt-4 mb-4">Design Layout</h2>
         <Row>
-            <Col className="col-md-3 color-picker">
+            <Col className="col-md-3">
                 <SketchPicker disableAlpha={true} color={state.selectedColor} presetColors={presetColors} onChange={updateColor}></SketchPicker>
+
+                <div style={{ margin: 'auto', width: '200px', paddingTop: '15px' }}>
+                    Current Color
+                    <div style={ {backgroundColor: state.selectedColor.hex, height: '20px', width: '100%' } }></div>
+                </div>
             </Col>
             <Col className="col-md-9">
                 <DesignLayout pattern={state.pattern} direction={state.direction} width={state.width} height={state.height} nodes={state.nodes} onLedClick={onLedNodeSelect}></DesignLayout>
             </Col>
         </Row>
 
-        <h2 className="mt-4">Debug State Output</h2>
-        <Card>
+        <CollapsableCard header="Debug Output" className="mt-4">
             <pre>{JSON.stringify(state,null, '  ')}</pre>
-        </Card>
+        </CollapsableCard>
     </>);
 
 }

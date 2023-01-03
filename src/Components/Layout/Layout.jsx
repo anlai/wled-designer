@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
 import { Outlet } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Layout = ({ children }) => {
 
@@ -16,7 +17,7 @@ const Layout = ({ children }) => {
       <main><Outlet></Outlet></main>
 
       <footer class="pt-5 my-5 text-muted border-top">
-          Created by the Bootstrap team &middot; &copy; 2022
+          Created by the <a href="https://github.com/anlai">anlai</a> &middot; &copy; 2022
       </footer>
     </>
   );
