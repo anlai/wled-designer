@@ -5,6 +5,7 @@ import DesignLayout from '../DesignLayout/DesignLayout';
 import CollapsableCard from '../CollapsableCard/CollapsableCard';
 import DesignActions from '../DesignActions/DesignActions';
 import DesignTools from '../DesignTools/DesignTools';
+import DesignExamples from '../DesignExamples/DesignExamples';
 
 const Designer = () => {
 
@@ -103,6 +104,9 @@ const Designer = () => {
 
         <h2 className="mt-4 mb-4">WLED Commands</h2>
         <Alert variant="primary">Coming Soon</Alert>
+
+        <h2 className="mt-4 mb-4">Examples</h2>
+        <DesignExamples onDesignLoad={onDesignLoad}></DesignExamples>
 
         <h2 className="mt-4 mb-4">Debug</h2>
         <CollapsableCard header="Debug Output" className="mt-4">
