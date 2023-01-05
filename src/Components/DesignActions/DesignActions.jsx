@@ -6,7 +6,7 @@ const DesignActions = ({state, onDesignLoad}) => {
     const [schema,setSchema] = React.useState({});
 
     React.useEffect(() => {
-        fetch(`${process.env.PUBLIC_URL}/data/wled-design.json`)
+        fetch(`${process.env.PUBLIC_URL}/schemas/wled-design.json`)
             .then((res) => res.json())
             .then((data) => { 
                 setSchema(data); 
