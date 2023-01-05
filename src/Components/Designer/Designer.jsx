@@ -19,6 +19,7 @@ const Designer = () => {
         direction: 'snake-top-left',
         width: 16,
         height: 16,
+        notes: '',
         selectedColor: defaultColor,
         nodes: Array(16*16).fill(defaultColor),
         showNodeNumber: false
