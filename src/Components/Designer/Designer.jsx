@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Alert } from 'react-bootstrap';
 import DesignEditor from '../DesignEditor/DesignEditor';
 import DesignLayout from '../DesignLayout/DesignLayout';
 import CollapsableCard from '../CollapsableCard/CollapsableCard';
@@ -100,6 +100,10 @@ const Designer = () => {
         <h2 className="mt-4 mb-4">Actions</h2>
         <DesignActions state={state} onDesignLoad={onDesignLoad}></DesignActions>
 
+        <h2 className="mt-4 mb-4">WLED Commands</h2>
+        <Alert variant="primary">Coming Soon</Alert>
+
+        <h2 className="mt-4 mb-4">Debug</h2>
         <CollapsableCard header="Debug Output" className="mt-4">
             <pre>{JSON.stringify(state,null, '  ')}</pre>
         </CollapsableCard>
