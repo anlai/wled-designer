@@ -1,15 +1,12 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
+import { Col, Row } from 'react-bootstrap';
 import DesignEditor from '../DesignEditor/DesignEditor';
 import DesignLayout from '../DesignLayout/DesignLayout';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { SketchPicker } from 'react-color';
 import CollapsableCard from '../CollapsableCard/CollapsableCard';
+import DesignActions from '../DesignActions/DesignActions';
+import DesignTools from '../DesignTools/DesignTools';
 
 const Designer = () => {
-
-    const presetColors = ['#FF0000', '#00FF00', '#0000FF', '#000000'];
 
     // represents "off" of an led node
     const defaultColor = { 
@@ -23,12 +20,16 @@ const Designer = () => {
         width: 16,
         height: 16,
         selectedColor: defaultColor,
-        nodes: Array(16*16).fill(defaultColor)
+        nodes: Array(16*16).fill(defaultColor),
+        showNodeNumber: false
     });
 
     function updateState(updates) {
         let updated = {...state};
-        for(const prop in updates) { updated[prop] = updates[prop]; }
+        for(const prop in updates) { 
+            console.log(`updating ${prop} with ${updates[prop]}`);
+            updated[prop] = updates[prop]; 
+        }
         setState(updated);
     }
 
@@ -48,7 +49,7 @@ const Designer = () => {
             if (width > 0 && height > 0) {
                 var nodes = [];
                 for(let i = 0; i < width*height; i++) {
-                    nodes[i] = {r:0,g:0,b:0};
+                    nodes[i] = defaultColor;
                 }
 
                 updates.nodes = nodes;
@@ -58,8 +59,12 @@ const Designer = () => {
         updateState(updates);
     }
 
-    function updateColor(color,event) {
+    function updateColor(color) {
         updateState({selectedColor: color});
+    }
+
+    function toggleNodeNumber(e) {
+        updateState({showNodeNumber: e.target.checked});
     }
 
     function onLedNodeSelect(event) {
@@ -69,6 +74,14 @@ const Designer = () => {
         updateState({nodes:nodes});
     }   
 
+    function onDesignLoad(loadedDesign) {
+        if (loadedDesign.selectedColor) {
+            delete loadedDesign.selectedColor;
+        }
+
+        updateState(loadedDesign);
+    }
+
     return (<>
         <h2 className="mt-4 mb-4">Design Editor</h2>
         <DesignEditor pattern={state.pattern} direction={state.direction} width={state.width} height={state.height} onChange={updateEditor}></DesignEditor>
@@ -76,17 +89,16 @@ const Designer = () => {
         <h2 className="mt-4 mb-4">Design Layout</h2>
         <Row>
             <Col className="col-md-3">
-                <SketchPicker disableAlpha={true} color={state.selectedColor} presetColors={presetColors} onChange={updateColor}></SketchPicker>
+            <DesignTools selectedColor={state.selectedColor} updateColor={updateColor} toggleNodeNumber={toggleNodeNumber}></DesignTools>
 
-                <div style={{ margin: 'auto', width: '200px', paddingTop: '15px' }}>
-                    Current Color
-                    <div style={ {backgroundColor: state.selectedColor.hex, height: '20px', width: '100%' } }></div>
-                </div>
             </Col>
             <Col className="col-md-9">
-                <DesignLayout pattern={state.pattern} direction={state.direction} width={state.width} height={state.height} nodes={state.nodes} onLedClick={onLedNodeSelect}></DesignLayout>
+                <DesignLayout pattern={state.pattern} direction={state.direction} width={state.width} height={state.height} nodes={state.nodes} showNodeNumber={state.showNodeNumber} onLedClick={onLedNodeSelect}></DesignLayout>
             </Col>
         </Row>
+
+        <h2 className="mt-4 mb-4">Actions</h2>
+        <DesignActions state={state} onDesignLoad={onDesignLoad}></DesignActions>
 
         <CollapsableCard header="Debug Output" className="mt-4">
             <pre>{JSON.stringify(state,null, '  ')}</pre>

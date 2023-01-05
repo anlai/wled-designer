@@ -6,13 +6,13 @@ const DesignEditor = ({pattern,direction,width,height,onChange}) => {
     return (<Row>
         <Form.Group className="col-sm-4">
             <Form.Label>Pattern</Form.Label>
-            <Form.Select name="pattern" onChange={onChange} defaultValue={pattern}>
+            <Form.Select name="pattern" onChange={onChange} value={pattern}>
                 <option value="grid">Grid</option>
             </Form.Select>
         </Form.Group>
         <Form.Group className="col-sm">
             <Form.Label>Direction</Form.Label>
-            <Form.Select name="direction" onChange={onChange} defaultValue={direction}>
+            <Form.Select name="direction" onChange={onChange} value={direction}>
                 <option value="snake-top-left">Snake (Top Left)</option>
                 <option value="snake-top-right">Snake (Top Right)</option>
                 <option value="snake-bottom-left">Snake (Bottom Left)</option>
@@ -21,11 +21,11 @@ const DesignEditor = ({pattern,direction,width,height,onChange}) => {
         </Form.Group>
         <Form.Group className="col-sm">
             <Form.Label>Width</Form.Label>
-            <Form.Control type="number" name="width" onChange={onChange} defaultValue={width}></Form.Control>
+            <Form.Control type="number" name="width" value={width} onChange={onChange}></Form.Control>
         </Form.Group>
         <Form.Group className="col-sm">
             <Form.Label>Height</Form.Label>
-            <Form.Control type="number" name="height" onChange={onChange} defaultValue={height}></Form.Control>
+            <Form.Control type="number" name="height" value={height} onChange={onChange}></Form.Control>
         </Form.Group>
     </Row>);
 }

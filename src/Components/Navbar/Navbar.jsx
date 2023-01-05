@@ -3,8 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
     const location = useLocation();
-    console.log(location.pathname);
-
     return (
         <ul className="nav nav-pills">
             <li className="nav-item"><Link to='/'  className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>Designer</Link></li>
