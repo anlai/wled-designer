@@ -1,13 +1,7 @@
 import React from 'react';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
-// import Button from 'react-bootstrap/Button';
-import { Row, Col, Button, Form, InputGroup } from 'react-bootstrap';
-import * as Constants from '../../Constants';
+import { Row, Col, Button, Form } from 'react-bootstrap';
 
 const DesignActions = ({state, onDesignLoad}) => {
-
-    const [file, setFile] = React.useState('');
 
     const [schema,setSchema] = React.useState({});
 
@@ -29,7 +23,7 @@ const DesignActions = ({state, onDesignLoad}) => {
         link.click();
     }
 
-    async function onFileChange(e) {
+    function onFileChange(e) {
         const fileReader = new FileReader();
         fileReader.readAsText(e.target.files[0], "UTF-8");
         fileReader.onload = e => {
