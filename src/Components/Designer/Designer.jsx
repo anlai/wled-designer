@@ -84,6 +84,15 @@ const Designer = () => {
         updateState({nodes:nodes, colorHistory: colorHistory});
     }   
 
+    function resetCanvas(color) {
+        let nodes = state.nodes;
+        for (let i = 0; i < nodes.length; i++) {
+            nodes[i] = color ?? defaultColor;
+        }
+
+        updateState({nodes: nodes});
+    }
+
     function onDesignLoad(loadedDesign) {
         if (loadedDesign.selectedColor) {
             delete loadedDesign.selectedColor;
@@ -102,6 +111,7 @@ const Designer = () => {
             <DesignTools selectedColor={state.selectedColor} 
                 colorHistory={state.colorHistory}
                 updateColor={updateColor} 
+                resetCanvas={resetCanvas}
                 toggleNodeNumber={toggleNodeNumber}></DesignTools>
 
             </Col>
