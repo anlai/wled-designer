@@ -22,6 +22,7 @@ const Designer = () => {
         height: 16,
         notes: '',
         selectedColor: defaultColor,
+        colorHistory: [],
         nodes: Array(16*16).fill(defaultColor),
         showNodeNumber: false
     });
@@ -29,7 +30,6 @@ const Designer = () => {
     function updateState(updates) {
         let updated = {...state};
         for(const prop in updates) { 
-            console.log(`updating ${prop} with ${updates[prop]}`);
             updated[prop] = updates[prop]; 
         }
         setState(updated);
@@ -62,7 +62,7 @@ const Designer = () => {
     }
 
     function updateColor(color) {
-        updateState({selectedColor: color});
+        updateState({selectedColor: { hex: color.hex, rgb: color.rgb }});
     }
 
     function toggleNodeNumber(e) {
@@ -73,7 +73,15 @@ const Designer = () => {
         let position = event.target.dataset.position;
         let nodes = state.nodes;
         nodes[position] = state.selectedColor;
-        updateState({nodes:nodes});
+
+        let colorHistory = state.colorHistory;
+        if (!colorHistory[0] || state.selectedColor !== colorHistory[0])
+        {
+            colorHistory = colorHistory.filter((value)=>{ return value.hex !== state.selectedColor.hex });
+            colorHistory.unshift(state.selectedColor);
+        }
+
+        updateState({nodes:nodes, colorHistory: colorHistory});
     }   
 
     function onDesignLoad(loadedDesign) {
@@ -91,7 +99,10 @@ const Designer = () => {
         <h2 className="mt-4 mb-4">Design Layout</h2>
         <Row>
             <Col className="col-md-3">
-            <DesignTools selectedColor={state.selectedColor} updateColor={updateColor} toggleNodeNumber={toggleNodeNumber}></DesignTools>
+            <DesignTools selectedColor={state.selectedColor} 
+                colorHistory={state.colorHistory}
+                updateColor={updateColor} 
+                toggleNodeNumber={toggleNodeNumber}></DesignTools>
 
             </Col>
             <Col className="col-md-9">
