@@ -5,7 +5,11 @@ const DesignExamples = ({onDesignLoad}) => {
 
     const examples = [
         { id: 'basic_palette', name: 'Basic Palette', size: '2x2' },
-        { id: 'mickey_mouse', name: 'Mickey Mouse', size: '16x16' },
+        { id: 'mario', name: 'Mario', size: '16x16' },
+        { id: 'mushroom', name: 'Mushroom', size: '16x16' },
+        { id: 'mickey', name: 'Mickey', size: '16x16' },
+        { id: 'minnie', name: 'Minnie', size: '16x16' },
+        { id: 'red_ghost', name: 'Red Ghost', size: '16x16' }
     ];
 
     const halfIndex = Math.ceil(examples.length/2);

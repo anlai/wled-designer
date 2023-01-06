@@ -2,7 +2,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 
-const DesignEditor = ({pattern,direction,width,height,onChange}) => {
+const DesignEditor = ({pattern,direction,width,height,notes,onChange}) => {
     return (<>
         <Row>
             <Form.Group className="col-sm-4">
@@ -32,7 +32,7 @@ const DesignEditor = ({pattern,direction,width,height,onChange}) => {
         <Row>
             <Form.Group>
                 <Form.Label>Notes</Form.Label>
-                <Form.Control as="textarea" name="notes" rows={3} onChange={onChange}></Form.Control>
+                <Form.Control as="textarea" name="notes" value={notes} rows={3} onChange={onChange}></Form.Control>
             </Form.Group>
         </Row>
     </>);

@@ -103,7 +103,12 @@ const Designer = () => {
 
     return (<>
         <h2 className="mt-4 mb-4">Design Editor</h2>
-        <DesignEditor pattern={state.pattern} direction={state.direction} width={state.width} height={state.height} onChange={updateEditor}></DesignEditor>
+        <DesignEditor pattern={state.pattern} 
+                direction={state.direction} 
+                width={state.width} 
+                height={state.height} 
+                notes={state.notes}
+                onChange={updateEditor}></DesignEditor>
 
         <h2 className="mt-4 mb-4">Design Layout</h2>
         <Row>
