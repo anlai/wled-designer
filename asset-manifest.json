@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/wled-designer/static/css/main.23c42e4d.css",
-    "main.js": "/wled-designer/static/js/main.fc147966.js",
+    "main.css": "/wled-designer/static/css/main.07ac1d60.css",
+    "main.js": "/wled-designer/static/js/main.8e6fab7e.js",
     "static/js/787.82481b7b.chunk.js": "/wled-designer/static/js/787.82481b7b.chunk.js",
     "index.html": "/wled-designer/index.html",
-    "main.23c42e4d.css.map": "/wled-designer/static/css/main.23c42e4d.css.map",
-    "main.fc147966.js.map": "/wled-designer/static/js/main.fc147966.js.map",
+    "main.07ac1d60.css.map": "/wled-designer/static/css/main.07ac1d60.css.map",
+    "main.8e6fab7e.js.map": "/wled-designer/static/js/main.8e6fab7e.js.map",
     "787.82481b7b.chunk.js.map": "/wled-designer/static/js/787.82481b7b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.23c42e4d.css",
-    "static/js/main.fc147966.js"
+    "static/css/main.07ac1d60.css",
+    "static/js/main.8e6fab7e.js"
   ]
 }
