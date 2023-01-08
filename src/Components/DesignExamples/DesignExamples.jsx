@@ -26,8 +26,6 @@ const DesignExamples = ({onDesignLoad}) => {
 
     function onClick(e) {
         if (e.target.dataset.id) {
-            console.log(e.target.dataset.id);
-
             fetch(`${process.env.PUBLIC_URL}/examples/${e.target.dataset.id}.json`)
                 .then((res) => res.json())
                 .then((data) => {
