@@ -1,7 +1,7 @@
 import React from 'react';
 import LedNode from '../LedNode/LedNode';
 
-const DesignLayout = ({pattern,direction,width,height,nodes,onLedClick}) => {
+const DesignLayout = ({pattern,direction,width,height,nodes,showNodeNumber,onLedClick}) => {
 
     function generateGrid(dir) {
         let counter = 0;
@@ -9,8 +9,7 @@ const DesignLayout = ({pattern,direction,width,height,nodes,onLedClick}) => {
         for(let row = 0; row < height; row++) {
             let rowArray=[];
             for(let col = 0; col < width; col++) {
-                console.log(`${counter} || ${JSON.stringify(nodes[counter])}`);
-                rowArray.push(<LedNode position={counter} color={nodes[counter]} onClick={onLedClick}></LedNode>);
+                rowArray.push(<LedNode key={counter} position={counter} color={nodes[counter]} showNodeNumber={showNodeNumber} onClick={onLedClick}></LedNode>);
                 counter++;
             }
 
@@ -45,7 +44,7 @@ const DesignLayout = ({pattern,direction,width,height,nodes,onLedClick}) => {
     }
 
     return (<div id="wled-layout">
-        {layout.map((item,index)=>{ return <div className="wled-row">{item}</div>; })}
+        {layout.map((item,index)=>{ return <div key={index.toString()} className="wled-row">{item}</div>; })}
         </div>);
 }
 

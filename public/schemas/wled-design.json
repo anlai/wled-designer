@@ -1,0 +1,224 @@
+{
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "pattern",
+        "direction",
+        "width",
+        "height",
+        "nodes"
+    ],
+    "properties": {
+        "pattern": {
+            "type": "string",
+            "default": "",
+            "title": "The pattern Schema",
+            "enum": ["grid"]
+        },
+        "direction": {
+            "type": "string",
+            "default": "",
+            "title": "The direction Schema",
+            "enum": [
+                "snake-top-left",
+                "snake-top-right",
+                "snake-bottom-left",
+                "snake-bottom-right"
+            ]
+        },
+        "width": {
+            "type": "integer",
+            "default": 2,
+            "title": "The width Schema",
+            "examples": [
+                2
+            ]
+        },
+        "height": {
+            "type": "integer",
+            "default": 2,
+            "title": "The height Schema",
+            "examples": [
+                2
+            ]
+        },
+        "selectedColor": { "$ref": "#/$defs/color" },
+        "nodes": {
+            "type": "array",
+            "default": [],
+            "title": "The nodes Schema",
+            "items": { "$ref": "#/$defs/color" },
+            "examples": [
+                [{
+                    "hex": "#ff0000",
+                    "rgb": {
+                        "r": 255,
+                        "g": 0,
+                        "b": 0,
+                        "a": 1
+                    }
+                },
+                {
+                    "hex": "#00ff00",
+                    "rgb": {
+                        "r": 0,
+                        "g": 255,
+                        "b": 0,
+                        "a": 1
+                    }
+                },
+                {
+                    "hex": "#000000",
+                    "rgb": {
+                        "r": 0,
+                        "g": 0,
+                        "b": 0,
+                        "a": 1
+                    }
+                },
+                {
+                    "hex": "#0000ff",
+                    "rgb": {
+                        "r": 0,
+                        "g": 0,
+                        "b": 255,
+                        "a": 1
+                    }
+                }]
+            ]
+        }
+    },
+    "$defs": {
+        "color": {
+            "type": "object",
+            "default": {},
+            "title": "The selectedColor Schema",
+            "required": [
+                "hex",
+                "rgb"
+            ],
+            "properties": {
+                "hex": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The hex Schema",
+                    "examples": [
+                        "#0000ff"
+                    ]
+                },
+                "rgb": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The rgb Schema",
+                    "required": [
+                        "r",
+                        "g",
+                        "b",
+                        "a"
+                    ],
+                    "properties": {
+                        "r": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "The r Schema",
+                            "examples": [
+                                0
+                            ]
+                        },
+                        "g": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "The g Schema",
+                            "examples": [
+                                0
+                            ]
+                        },
+                        "b": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "The b Schema",
+                            "examples": [
+                                255
+                            ]
+                        },
+                        "a": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "The a Schema",
+                            "examples": [
+                                1
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "r": 0,
+                        "g": 0,
+                        "b": 255,
+                        "a": 1
+                    }]
+                }
+            },
+            "examples": [{
+                "hex": "#0000ff",
+                "rgb": {
+                    "r": 0,
+                    "g": 0,
+                    "b": 255,
+                    "a": 1
+                }
+            }]
+        }
+    },
+    "examples": [{
+        "pattern": "grid",
+        "direction": "snake-top-left",
+        "width": 2,
+        "height": 2,
+        "selectedColor": {
+            "hex": "#0000ff",
+            "rgb": {
+                "r": 0,
+                "g": 0,
+                "b": 255,
+                "a": 1
+            }
+        },
+        "nodes": [{
+            "hex": "#ff0000",
+            "rgb": {
+                "r": 255,
+                "g": 0,
+                "b": 0,
+                "a": 1
+            }
+        },
+        {
+            "hex": "#00ff00",
+            "rgb": {
+                "r": 0,
+                "g": 255,
+                "b": 0,
+                "a": 1
+            }
+        },
+        {
+            "hex": "#000000",
+            "rgb": {
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "a": 1
+            }
+        },
+        {
+            "hex": "#0000ff",
+            "rgb": {
+                "r": 0,
+                "g": 0,
+                "b": 255,
+                "a": 1
+            }
+        }]
+    }]
+}
