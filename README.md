@@ -4,7 +4,7 @@ Easily design a pattern for your WLED light strips and matrices, simply by click
 
 ### Example
 
-![red ghost grid example](public/examples/red_ghost.jpg =261x324)
+![](public/examples/red_ghost.jpg =261x324)
 
 This example was buile for the BTF Lighting WS2812B-16x16ECO matrix.
 
