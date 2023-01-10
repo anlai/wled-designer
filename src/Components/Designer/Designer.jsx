@@ -61,10 +61,6 @@ const Designer = () => {
         updateState(updates);
     }
 
-    function updateColor(color) {
-        updateState({selectedColor: { hex: color.hex, rgb: color.rgb }});
-    }
-
     function onLedNodeSelect(event) {
         let position = event.target.dataset.position;
         let nodes = state.nodes;
@@ -100,9 +96,7 @@ const Designer = () => {
         <h2 className="mt-4 mb-4">Design Layout</h2>
         <Row>
             <Col className="col-md-3">
-            <DesignTools state={state}
-                updateState={updateState}
-                updateColor={updateColor}></DesignTools>
+            <DesignTools state={state} updateState={updateState}></DesignTools>
 
             </Col>
             <Col className="col-md-9">
