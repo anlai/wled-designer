@@ -5,8 +5,7 @@ import { ArrowDownUp, ArrowLeftRight} from 'react-bootstrap-icons';
 
 import * as Constants from '../../Constants';
 
-const DesignTools = ({state, updateState,
-        updateColor}) => {
+const DesignTools = ({state, updateState}) => {
     
     const presetColors = ['#FF0000', '#00FF00', '#0000FF', '#000000'];
     const RESET_CANVAS = 'RESET_CANVAS';
@@ -24,6 +23,8 @@ const DesignTools = ({state, updateState,
     }
 
     function flipNodesHorizontal() {
+        // this assumes the snaking method goes from side to side
+        // where each chunk is a straight range and represents a row
         var chunks = sliceIntoChunks(state.nodes,state.width);
         chunks.forEach(element => element.reverse());
 
@@ -40,7 +41,18 @@ const DesignTools = ({state, updateState,
         return res;
     }
 
-    function flipNodesVertical() {}
+    function flipNodesVertical() {
+        // this assumes the snaking method goes from side to side
+        // each chunk represents the nth node in each row
+        var chunks = sliceIntoChunks(state.nodes,state.width);
+        chunks.forEach(item=> item = item.reverse());
+        let output = chunks.reverse();
+        updateState({nodes: output.flat()});
+    }
+
+    function updateColor(color) {
+        updateState({selectedColor: { hex: color.hex, rgb: color.rgb }});
+    }
 
     const handleClick = (e) => {
         let target = e.target;
