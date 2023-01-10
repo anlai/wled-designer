@@ -74,6 +74,10 @@ const DesignTools = ({state, updateState}) => {
             case FLIP_VERTICAL:     
                 flipNodesVertical();
                 break;
+
+            default:
+                console.warn(`invalid action: ${target.dataset.action}`);
+                break;
         }
     }
 

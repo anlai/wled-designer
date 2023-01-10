@@ -7,13 +7,9 @@ import DesignActions from '../DesignActions/DesignActions';
 import DesignTools from '../DesignTools/DesignTools';
 import DesignExamples from '../DesignExamples/DesignExamples';
 
-const Designer = () => {
+import * as Constants from '../../Constants';
 
-    // represents "off" of an led node
-    const defaultColor = { 
-        hex: "#000000",
-        rgb: { r: 0, g: 0, b: 0, a: 1 }
-    };
+const Designer = () => {
 
     const [state, setState] = React.useState({
         pattern: 'grid',
@@ -21,9 +17,9 @@ const Designer = () => {
         width: 16,
         height: 16,
         notes: '',
-        selectedColor: defaultColor,
+        selectedColor: Constants.DEFAULT_NODE_COLOR,
         colorHistory: [],
-        nodes: Array(16*16).fill(defaultColor),
+        nodes: Array(16*16).fill(Constants.DEFAULT_NODE_COLOR),
         showNodeNumber: false
     });
 
@@ -33,36 +29,6 @@ const Designer = () => {
             updated[prop] = updates[prop]; 
         }
         setState(updated);
-    }
-
-    function updateEditor(e) {
-        let prop = e.target.name;
-        let val = e.target.value;
-        let type = e.target.type;
-        let name = e.target.name;
-
-        let updates = {};
-        updates[prop] = type === 'number' ? parseInt(val) : val;
-
-        if (name === 'height' || name === 'width') {
-            let width = name === 'width' ? updates['width'] : state.width;
-            let height = name === 'height' ? updates['height'] : state.height;
-
-            if (width > 0 && height > 0) {
-                var nodes = [];
-                for(let i = 0; i < width*height; i++) {
-                    nodes[i] = defaultColor;
-                }
-
-                updates.nodes = nodes;
-            }
-        }
-
-        updateState(updates);
-    }
-
-    function updateColor(color) {
-        updateState({selectedColor: { hex: color.hex, rgb: color.rgb }});
     }
 
     function onLedNodeSelect(event) {
@@ -90,19 +56,12 @@ const Designer = () => {
 
     return (<>
         <h2 className="mt-4 mb-4">Design Editor</h2>
-        <DesignEditor pattern={state.pattern} 
-                direction={state.direction} 
-                width={state.width} 
-                height={state.height} 
-                notes={state.notes}
-                onChange={updateEditor}></DesignEditor>
+        <DesignEditor state={state} updateState={updateState}></DesignEditor>
 
         <h2 className="mt-4 mb-4">Design Layout</h2>
         <Row>
             <Col className="col-md-3">
-            <DesignTools state={state}
-                updateState={updateState}
-                updateColor={updateColor}></DesignTools>
+            <DesignTools state={state} updateState={updateState}></DesignTools>
 
             </Col>
             <Col className="col-md-9">
