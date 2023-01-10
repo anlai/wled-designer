@@ -65,10 +65,6 @@ const Designer = () => {
         updateState({selectedColor: { hex: color.hex, rgb: color.rgb }});
     }
 
-    function toggleNodeNumber(e) {
-        updateState({showNodeNumber: e.target.checked});
-    }
-
     function onLedNodeSelect(event) {
         let position = event.target.dataset.position;
         let nodes = state.nodes;
@@ -83,15 +79,6 @@ const Designer = () => {
 
         updateState({nodes:nodes, colorHistory: colorHistory});
     }   
-
-    function resetCanvas(color) {
-        let nodes = state.nodes;
-        for (let i = 0; i < nodes.length; i++) {
-            nodes[i] = color ?? defaultColor;
-        }
-
-        updateState({nodes: nodes});
-    }
 
     function onDesignLoad(loadedDesign) {
         if (loadedDesign.selectedColor) {
@@ -113,11 +100,9 @@ const Designer = () => {
         <h2 className="mt-4 mb-4">Design Layout</h2>
         <Row>
             <Col className="col-md-3">
-            <DesignTools selectedColor={state.selectedColor} 
-                colorHistory={state.colorHistory}
-                updateColor={updateColor} 
-                resetCanvas={resetCanvas}
-                toggleNodeNumber={toggleNodeNumber}></DesignTools>
+            <DesignTools state={state}
+                updateState={updateState}
+                updateColor={updateColor}></DesignTools>
 
             </Col>
             <Col className="col-md-9">
