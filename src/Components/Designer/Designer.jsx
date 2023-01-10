@@ -7,13 +7,9 @@ import DesignActions from '../DesignActions/DesignActions';
 import DesignTools from '../DesignTools/DesignTools';
 import DesignExamples from '../DesignExamples/DesignExamples';
 
-const Designer = () => {
+import * as Constants from '../../Constants';
 
-    // represents "off" of an led node
-    const defaultColor = { 
-        hex: "#000000",
-        rgb: { r: 0, g: 0, b: 0, a: 1 }
-    };
+const Designer = () => {
 
     const [state, setState] = React.useState({
         pattern: 'grid',
@@ -21,9 +17,9 @@ const Designer = () => {
         width: 16,
         height: 16,
         notes: '',
-        selectedColor: defaultColor,
+        selectedColor: Constants.DEFAULT_NODE_COLOR,
         colorHistory: [],
-        nodes: Array(16*16).fill(defaultColor),
+        nodes: Array(16*16).fill(Constants.DEFAULT_NODE_COLOR),
         showNodeNumber: false
     });
 

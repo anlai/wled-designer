@@ -9,7 +9,8 @@ export const DESIGN_DIRECTIONS = [
     { value: 'snake-bottom-right', name: 'Snake (Bottom Right)', pattern: 'grid' },
 ];
 
+// represents "off"
 export const DEFAULT_NODE_COLOR = { 
-        hex: "#000000",
-        rgb: { r: 0, g: 0, b: 0, a: 1 }
-    };
+    hex: "#000000",
+    rgb: { r: 0, g: 0, b: 0, a: 1 }
+};
