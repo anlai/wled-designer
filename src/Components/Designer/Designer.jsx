@@ -35,32 +35,6 @@ const Designer = () => {
         setState(updated);
     }
 
-    function updateEditor(e) {
-        let prop = e.target.name;
-        let val = e.target.value;
-        let type = e.target.type;
-        let name = e.target.name;
-
-        let updates = {};
-        updates[prop] = type === 'number' ? parseInt(val) : val;
-
-        if (name === 'height' || name === 'width') {
-            let width = name === 'width' ? updates['width'] : state.width;
-            let height = name === 'height' ? updates['height'] : state.height;
-
-            if (width > 0 && height > 0) {
-                var nodes = [];
-                for(let i = 0; i < width*height; i++) {
-                    nodes[i] = defaultColor;
-                }
-
-                updates.nodes = nodes;
-            }
-        }
-
-        updateState(updates);
-    }
-
     function onLedNodeSelect(event) {
         let position = event.target.dataset.position;
         let nodes = state.nodes;
@@ -86,12 +60,7 @@ const Designer = () => {
 
     return (<>
         <h2 className="mt-4 mb-4">Design Editor</h2>
-        <DesignEditor pattern={state.pattern} 
-                direction={state.direction} 
-                width={state.width} 
-                height={state.height} 
-                notes={state.notes}
-                onChange={updateEditor}></DesignEditor>
+        <DesignEditor state={state} updateState={updateState}></DesignEditor>
 
         <h2 className="mt-4 mb-4">Design Layout</h2>
         <Row>
