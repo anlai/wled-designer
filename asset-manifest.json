@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/wled-designer/static/css/main.07ac1d60.css",
-    "main.js": "/wled-designer/static/js/main.e64fe9aa.js",
-    "static/js/787.82481b7b.chunk.js": "/wled-designer/static/js/787.82481b7b.chunk.js",
-    "index.html": "/wled-designer/index.html",
-    "main.07ac1d60.css.map": "/wled-designer/static/css/main.07ac1d60.css.map",
-    "main.e64fe9aa.js.map": "/wled-designer/static/js/main.e64fe9aa.js.map",
-    "787.82481b7b.chunk.js.map": "/wled-designer/static/js/787.82481b7b.chunk.js.map"
+    "main.css": "/static/css/main.07ac1d60.css",
+    "main.js": "/static/js/main.7d49e52f.js",
+    "static/js/787.82481b7b.chunk.js": "/static/js/787.82481b7b.chunk.js",
+    "index.html": "/index.html",
+    "main.07ac1d60.css.map": "/static/css/main.07ac1d60.css.map",
+    "main.7d49e52f.js.map": "/static/js/main.7d49e52f.js.map",
+    "787.82481b7b.chunk.js.map": "/static/js/787.82481b7b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.07ac1d60.css",
-    "static/js/main.e64fe9aa.js"
+    "static/js/main.7d49e52f.js"
   ]
 }
