@@ -25,13 +25,37 @@ const DesignExamples = ({onDesignLoad}) => {
     }
 
     function onClick(e) {
-        if (e.target.dataset.id) {
-            fetch(`${process.env.PUBLIC_URL}/examples/${e.target.dataset.id}.json`)
+
+        let button = e.target;
+
+        // deal with the child elements getting the click event
+        if (button.nodeName !== 'BUTTON' && button.parentNode.nodeName === 'BUTTON') {
+            button = button.parentNode;
+        }
+
+        if (button.dataset.id) {
+            fetch(`${process.env.PUBLIC_URL}/examples/${button.dataset.id}.json`)
                 .then((res) => res.json())
                 .then((data) => {
                     onDesignLoad(data);
                 });
         }
+
+
+        // if (e.target.nodeName !== 'BUTTON') {
+        //     console.log(e.target.parentNode);
+
+        //     let parent = e.target.parentNode;
+        //     if (parent.nodeName === 'BUTTON') button = parent;
+        // }
+
+        // if (e.target.dataset.id) {
+        //     fetch(`${process.env.PUBLIC_URL}/examples/${e.target.dataset.id}.json`)
+        //         .then((res) => res.json())
+        //         .then((data) => {
+        //             onDesignLoad(data);
+        //         });
+        // }
     }
 
     return (
