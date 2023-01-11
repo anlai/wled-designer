@@ -40,22 +40,6 @@ const DesignExamples = ({onDesignLoad}) => {
                     onDesignLoad(data);
                 });
         }
-
-
-        // if (e.target.nodeName !== 'BUTTON') {
-        //     console.log(e.target.parentNode);
-
-        //     let parent = e.target.parentNode;
-        //     if (parent.nodeName === 'BUTTON') button = parent;
-        // }
-
-        // if (e.target.dataset.id) {
-        //     fetch(`${process.env.PUBLIC_URL}/examples/${e.target.dataset.id}.json`)
-        //         .then((res) => res.json())
-        //         .then((data) => {
-        //             onDesignLoad(data);
-        //         });
-        // }
     }
 
     return (
