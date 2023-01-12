@@ -2,6 +2,8 @@
 
 Easily design a pattern for your WLED light strips and matrices, simply by clicking the desired color and updating a specific node.  Once you've got the design the way you like it, grab the payload or command to execute against your WLED controll via the REST API.  Note that this will help generate the commands to set a static image and doesn't have the ability to create videos or moving designs.
 
+[See it in action here](https://alanlai.me/wled-designer/)
+
 ### Example
 
 ![red ghost example](public/examples/red_ghost.jpg?raw=true)
