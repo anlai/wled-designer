@@ -1,7 +1,7 @@
 import React from 'react';
 import LedNode from '../LedNode/LedNode';
 
-const DesignLayout = ({pattern,direction,width,height,nodes,showNodeNumber,onLedClick}) => {
+const DesignLayout = ({pattern,direction,width,height,nodes,showNodeTooltip,onLedClick}) => {
 
     function generateGrid(dir) {
         let counter = 0;
@@ -9,7 +9,7 @@ const DesignLayout = ({pattern,direction,width,height,nodes,showNodeNumber,onLed
         for(let row = 0; row < height; row++) {
             let rowArray=[];
             for(let col = 0; col < width; col++) {
-                rowArray.push(<LedNode key={counter} position={counter} color={nodes[counter]} showNodeNumber={showNodeNumber} onClick={onLedClick}></LedNode>);
+                rowArray.push(<LedNode key={counter} position={counter} color={nodes[counter]} showNodeTooltip={showNodeTooltip} onClick={onLedClick}></LedNode>);
                 counter++;
             }
 

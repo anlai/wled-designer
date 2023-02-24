@@ -99,7 +99,7 @@ const DesignTools = ({state, updateState}) => {
                     })}
             </div>
             <strong>Actions</strong>
-            <Form.Check label="Show Node Number" checked={state.showNodeNumber} onChange={() => { updateState({ showNodeNumber: !state.showNodeNumber }); }}></Form.Check>
+            <Form.Check label="Show Node Tooltip" checked={state.showNodeTooltip} onChange={() => { updateState({ showNodeTooltip: !state.showNodeTooltip }); }}></Form.Check>
         </div>
         <div>
             <Button data-action={RESET_CANVAS} className="mx-1 mb-1 mt-2 col-md-5" onClick={handleClick}>Reset</Button>
