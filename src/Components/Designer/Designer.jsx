@@ -20,7 +20,8 @@ const Designer = () => {
         selectedColor: Constants.DEFAULT_NODE_COLOR,
         colorHistory: [],
         nodes: Array(16*16).fill(Constants.DEFAULT_NODE_COLOR),
-        showNodeTooltip: false
+        showNodeTooltip: false,
+        showNodeNumber: false
     });
 
     function updateState(updates) {
@@ -65,7 +66,16 @@ const Designer = () => {
 
             </Col>
             <Col className="col-md-9">
-                <DesignLayout pattern={state.pattern} direction={state.direction} width={state.width} height={state.height} nodes={state.nodes} showNodeTooltip={state.showNodeTooltip} onLedClick={onLedNodeSelect}></DesignLayout>
+                <DesignLayout 
+                    pattern={state.pattern} 
+                    direction={state.direction} 
+                    width={state.width} 
+                    height={state.height} 
+                    nodes={state.nodes} 
+                    showNodeTooltip={state.showNodeTooltip} 
+                    showNodeNumber={state.showNodeNumber}
+                    onLedClick={onLedNodeSelect}>
+                </DesignLayout>
             </Col>
         </Row>
 
