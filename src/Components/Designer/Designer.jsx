@@ -8,6 +8,7 @@ import DesignTools from '../DesignTools/DesignTools';
 import DesignExamples from '../DesignExamples/DesignExamples';
 
 import * as Constants from '../../Constants';
+import WledCommands from '../WLEDCommands/WLEDCommands';
 
 const Designer = () => {
 
@@ -83,7 +84,7 @@ const Designer = () => {
         <DesignActions state={state} onDesignLoad={onDesignLoad}></DesignActions>
 
         <h2 className="mt-4 mb-4">WLED Commands</h2>
-        <Alert variant="primary">Coming Soon</Alert>
+        <WledCommands nodes={state.nodes}></WledCommands>
 
         <h2 className="mt-4 mb-4">Examples</h2>
         <DesignExamples onDesignLoad={onDesignLoad}></DesignExamples>
