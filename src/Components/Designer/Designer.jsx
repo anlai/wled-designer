@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Alert } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import DesignEditor from '../DesignEditor/DesignEditor';
 import DesignLayout from '../DesignLayout/DesignLayout';
 import CollapsableCard from '../CollapsableCard/CollapsableCard';
