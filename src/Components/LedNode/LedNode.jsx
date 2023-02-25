@@ -13,7 +13,7 @@ const LedNode = ({position, color, showNodeTooltip, showNodeNumber, onClick}) =>
 
     const nodeStyle = { 
         backgroundColor: color.hex,
-        color: color.hsv.v < .5 ? Constants.COLOR_WHITE_HEX : Constants.COLOR_BLACK_HEX
+        color: color.hsv ? (color.hsv.v < .5 ? Constants.COLOR_WHITE_HEX : Constants.COLOR_BLACK_HEX) : Constants.COLOR_BLACK_HEX
     };
 
     const node = (<div className="led-node" data-position={position} style={nodeStyle} onClick={onClick}>
