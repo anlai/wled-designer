@@ -34,13 +34,13 @@ const DesignEditor = ({state,updateState}) => {
 
     return (<>
         <Row>
-            <Form.Group className="col-sm-4">
+            <Form.Group className="col-sm-3">
                 <Form.Label>Pattern</Form.Label>
                 <Form.Select name="pattern" onChange={onChange} value={state.pattern}>
                     { Constants.DESIGN_PATTERNS.map((item)=> <option key={item.value} value={item.value}>{item.name}</option>) }
                 </Form.Select>
             </Form.Group>
-            <Form.Group className="col-sm">
+            <Form.Group className="col-sm-3">
                 <Form.Label>Direction</Form.Label>
                 <Form.Select name="direction" onChange={onChange} value={state.direction}>
                     { Constants.DESIGN_DIRECTIONS.filter((item)=> item.pattern === state.pattern)
