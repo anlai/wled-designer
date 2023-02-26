@@ -51,7 +51,7 @@ const DesignTools = ({state, updateState}) => {
     }
 
     function updateColor(color) {
-        updateState({selectedColor: { hex: color.hex, rgb: color.rgb, hsv: color.hsv }});
+        updateState({selectedColor: { hex: color.hex, hsv: color.hsv }});
     }
 
     const handleClick = (e) => {

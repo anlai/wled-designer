@@ -12,7 +12,6 @@ export const DESIGN_DIRECTIONS = [
 // represents "off"
 export const DEFAULT_NODE_COLOR = { 
     hex: "#000000",
-    rgb: { r: 0, g: 0, b: 0, a: 1 },
     hsv: { h: 0, s: 0, v: 0, a: 1 }
 };
 

@@ -89,10 +89,12 @@ const Designer = () => {
         <h2 className="mt-4 mb-4">Examples</h2>
         <DesignExamples onDesignLoad={onDesignLoad}></DesignExamples>
 
-        <h2 className="mt-4 mb-4">Debug</h2>
-        <CollapsableCard header="Debug Output" className="mt-4">
-            <pre>{JSON.stringify(state,null, '  ')}</pre>
-        </CollapsableCard>
+        <div style={{ visibility: !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? 'visible' : 'hidden' }}>
+            <h2 className="mt-4 mb-4">Debug</h2>
+            <CollapsableCard header="Debug Output" className="mt-4">
+                <pre>{JSON.stringify(state,null, '  ')}</pre>
+            </CollapsableCard>
+        </div>
     </>);
 
 }
