@@ -9,7 +9,8 @@ const DesignExamples = ({onDesignLoad}) => {
         { id: 'mushroom', name: 'Mushroom', size: '16x16' },
         { id: 'mickey', name: 'Mickey', size: '16x16' },
         { id: 'minnie', name: 'Minnie', size: '16x16' },
-        { id: 'red_ghost', name: 'Red Ghost', size: '16x16' }
+        { id: 'red_ghost', name: 'Red Ghost', size: '16x16' },
+        { id: 'yoshi', name: 'Yoshi', size: '16x16' }
     ];
 
     const halfIndex = Math.ceil(examples.length/2);
