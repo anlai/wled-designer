@@ -22,7 +22,9 @@ const Designer = () => {
         colorHistory: [],
         nodes: Array(16*16).fill(Constants.DEFAULT_NODE_COLOR),
         showNodeTooltip: false,
-        showNodeNumber: false
+        showNodeNumber: false,
+        wledAddress: '',
+        wledBrightness: 60
     });
 
     function updateState(updates) {
@@ -84,7 +86,7 @@ const Designer = () => {
         <DesignActions state={state} onDesignLoad={onDesignLoad}></DesignActions>
 
         <h2 className="mt-4 mb-4">WLED Commands</h2>
-        <WledCommands nodes={state.nodes}></WledCommands>
+        <WledCommands nodes={state.nodes} wledAddress={state.wledAddress} wledBrightness={state.wledBrightness} updateState={updateState}></WledCommands>
 
         <h2 className="mt-4 mb-4">Examples</h2>
         <DesignExamples onDesignLoad={onDesignLoad}></DesignExamples>
