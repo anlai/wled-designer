@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tabs, Tab } from 'react-bootstrap';
-import { Row, Col, Button, Form } from 'react-bootstrap';
+import { Row, Button, Form } from 'react-bootstrap';
 
 const WledCommands = ({nodes,wledAddress,wledBrightness,updateState}) => {
 
